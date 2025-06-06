@@ -19,7 +19,7 @@ jobs:
       - name: Install and set Haxe Libraries (strict pinned versions, fully compatible)
         run: |
           haxelib setup ~/haxelib
-          haxelib git flxgif https://github.com/SirLynix/flxgif
+          haxelib git flxgif https://github.com/MAJigsaw77/flxgif.git
           haxelib install lime 7.9.0 --quiet
           haxelib install openfl 9.1.0 --quiet
           haxelib install flixel 4.9.0 --quiet
