@@ -39,7 +39,6 @@ jobs:
 
       - name: Build Psych Engine for HTML5 inside FNF-PsychEngine-0.4.2
         run: |
-          cd FNF-PsychEngine-0.4.2
           haxelib run lime build html5 -debug
 
       - name: Move output to funkin folder
