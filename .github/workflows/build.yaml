@@ -16,10 +16,14 @@ jobs:
         with:
           haxe-version: 4.2.0
 
-      - name: Install and set Haxe Libraries (strict pinned versions, fully compatible)
+      - name: Install and set Haxe Libraries (strict pinned versions + required git haxelibs)
         run: |
           haxelib setup ~/haxelib
-          haxelib git flxgif https://github.com/MAJigsaw77/flxgif.git
+          # Third‑party libs
+          haxelib git flxgif https://github.com/SirLynix/flxgif
+          haxelib git hscript-lore https://github.com/dotevie/hscript-lore
+          
+          # Main libs compatible with Flixel 4.9.0
           haxelib install lime 7.9.0 --quiet
           haxelib install openfl 9.1.0 --quiet
           haxelib install flixel 4.9.0 --quiet
@@ -28,6 +32,8 @@ jobs:
           haxelib install hxcpp 4.0.64 --quiet
           haxelib install tjson 1.4.0 --quiet
           haxelib install hscript 2.3.0 --quiet
+
+          # Pinning versions
           haxelib set lime 7.9.0
           haxelib set openfl 9.1.0
           haxelib set flixel 4.9.0
@@ -46,8 +52,8 @@ jobs:
           mkdir -p output/funkin
           cp -r FNF-PsychEngine-0.4.2/export/debug/html5/bin/* output/funkin/
 
-      - name: Upload funkin folder (inside output/) as build artifact
+      - name: Upload funkin folder as build artifact
         uses: actions/upload-artifact@v4
         with:
           name: PsychEngineHTML5Build
-          path: output/
+          path: output/funkin
