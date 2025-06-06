@@ -20,7 +20,7 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           # Third‑party libs
-          haxelib git flxgif https://github.com/SirLynix/flxgif
+          https://github.com/MAJigsaw77/flxgif
           haxelib git hscript-lore https://github.com/dotevie/hscript-lore
           
           # Main libs compatible with Flixel 4.9.0
