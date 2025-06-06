@@ -19,6 +19,7 @@ jobs:
       - name: Install and set Haxe Libraries (strict pinned versions, fully compatible)
         run: |
           haxelib setup ~/haxelib
+          haxelib git flxgif https://github.com/SirLynix/flxgif
           haxelib install lime 7.9.0 --quiet
           haxelib install openfl 9.1.0 --quiet
           haxelib install flixel 4.9.0 --quiet
@@ -38,6 +39,7 @@ jobs:
 
       - name: Build Psych Engine for HTML5 inside FNF-PsychEngine-0.4.2
         run: |
+          cd FNF-PsychEngine-0.4.2
           haxelib run lime build html5 -debug
 
       - name: Move output to funkin folder
@@ -49,4 +51,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: PsychEngineHTML5Build
-          path: output/funkin
+          path: output/
